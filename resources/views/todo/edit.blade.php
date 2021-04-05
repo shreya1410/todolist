@@ -10,10 +10,17 @@
                 <div class="input-group mb-3 w-100">
                     <input type="text" class="form-control form-control-lg" name="title" value="{{$todo->title}}"
                            aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-success" type="submit" id="button-addon2">save</button>
+                </div>
+                <div class="input-group mb-3 w-100">
+                    <div class="input-group mb-3 w-100">
+                        <textarea class="form-control form-control-lg"  placeholder="Task Description" rows="10" cols="20" name="Description" >{{$todo->Description}}</textarea>
                     </div>
                 </div>
+                <div class="card-footer">
+                    <button class="btn btn-success" type="submit" id="button-addon2">save</button>
+                    <a href="/" class="btn btn-warning">Back</a>
+                </div>
+
             </form>
 
 

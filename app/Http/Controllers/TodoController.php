@@ -37,10 +37,14 @@ class TodoController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-           'title' => 'required|max:255',
+           'title' => 'required',
+            'Description' => 'required',
         ]);
+
+
         $todo = Todo::create([
            'title' => $request->title,
+           'Description' => $request->Description,
            'completed'=>0,
         ]);
         return redirect('/');
