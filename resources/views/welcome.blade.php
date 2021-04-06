@@ -11,7 +11,7 @@
                            aria-label="Recipient's username" aria-describedby="button-addon2">
                 </div>
                 <div class="input-group mb-3 w-100">
-                    <textarea class="form-control form-control-lg"  placeholder="Task Description" rows="10" cols="20" name="Description" ></textarea>
+                    <textarea class="form-control form-control-lg"  placeholder="Task Description" rows="5" cols="10" name="Description" ></textarea>
                 </div>
                 <div class="input-group-append">
                     <button class="btn btn-success" type="submit" id="button-addon2">Add to the list</button>
@@ -65,6 +65,7 @@
 
                         </div>
                     </div>
+
                     <div class="accordion" id="accordionExample">
                         <div id="collapse{{$todo->id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
@@ -77,8 +78,10 @@
                 @empty
                     <p class="orm-control form-control-lg"> Sorry , nothing to do right now</p>
                 @endforelse
+
             </div>
         </div>
     </div>
+
 
 @endsection

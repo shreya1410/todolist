@@ -16,5 +16,10 @@ use App\Http\Controllers\TodoController;
 
 Route::get('/', [TodoController::class,'index']);
 
+
 Route::resource('todo',TodoController::class);
 
+
+Auth::routes();
+Route::get('/home', [TodoController::class,'index']);
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
