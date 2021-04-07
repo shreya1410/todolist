@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SentTaskMail;
 use App\Models\Todo;
 use Illuminate\Http\Request;
 
@@ -47,6 +48,10 @@ class TodoController extends Controller
            'Description' => $request->Description,
            'completed'=>0,
         ]);
+
+        event(new SentTaskMail($todo));
+      //  return  $todo;
+
         return redirect('/');
     }
 

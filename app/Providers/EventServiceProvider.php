@@ -8,6 +8,8 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Event;
 use App\Events\SentRegisteredUserMail;
 use App\Listner\SentRegisteredUserMailListner;
+use App\Events\SentTaskMail;
+use App\Listner\SentTaskMailListener;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         SentRegisteredUserMail::class => [
             SentRegisteredUserMailListner::class,
+        ],
+        SentTaskMail::class =>[
+            SentTaskMailListener::class
         ],
     ];
 
