@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
+use \App\Models\Todo;
+use Symfony\Component\Console\Input\Input;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,8 @@ Route::get('/', [TodoController::class,'index']);
 
 
 Route::resource('todo',TodoController::class);
+
+//Route::get('/search/', [TodoController::class,'search'])->name('search');
 
 
 Auth::routes();

@@ -11,13 +11,42 @@ class TodoController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request  $request)
     {
-        $todos = Todo::latest()->get();
-        return view('welcome')->with('todos',$todos);
+       $todos = Todo::latest()->simplePaginate(4);
+       return view('welcome')->with('todos',$todos);
     }
+
+
+//    public function search(Request $request)
+//    {
+//        if($request->ajax())
+//        {
+//            $data= Todo::where('title','LIKE',$request->search.'%')->get();
+//            $output = '';
+//            if(count($data)>0)
+//            {
+//                $output = '<ul class="list-group" style="display: block; position: relative; z-index: 1">';
+//
+//                foreach ($data as $row){
+//
+//                    $output .= '<li class="list-group-item">'.$row->title.'</li>';
+//                }
+//
+//                $output .= '</ul>';
+//            }
+//            else
+//            {
+//                $output .= '<li class="list-group-item">'.'No results'.'</li>';
+//            }
+//            return $output;
+//        }
+//    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -42,7 +71,6 @@ class TodoController extends Controller
             'Description' => 'required',
         ]);
 
-
         $todo = Todo::create([
            'title' => $request->title,
            'Description' => $request->Description,
@@ -50,8 +78,6 @@ class TodoController extends Controller
         ]);
 
         event(new SentTaskMail($todo));
-      //  return  $todo;
-
         return redirect('/');
     }
 
